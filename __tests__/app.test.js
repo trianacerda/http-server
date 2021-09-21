@@ -22,7 +22,7 @@ describe('http routes', () => {
   });
   it('should return 404 from GET /bad-file', async () => {
     const res = await request(app).get('/styles');
-
     expect(res.statusCode).toEqual(404);
+
   });
 });
