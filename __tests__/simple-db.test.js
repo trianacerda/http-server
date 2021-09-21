@@ -9,7 +9,7 @@ describe('simple db', () => {
     await mkdir(rootDir, { recursive: true });
   });
 
-  xit('saved object has id', async () => {
+  it('saved object has id', async () => {
     const db = new SimpleDb(rootDir);
 
     const felix = { name: 'felix', type: 'tuxedo' };
@@ -18,7 +18,7 @@ describe('simple db', () => {
     expect(felix.id).toEqual(expect.any(String));
   });
 
-  xit('save and get an object', async () => {
+  it('save and get an object', async () => {
     const db = new SimpleDb(rootDir);
 
     const felix = { name: 'felix', type: 'tuxedo' };
@@ -27,14 +27,14 @@ describe('simple db', () => {
     expect(got).toEqual(felix);
   });
 
-  xit('returns null for non-existant id', async () => {
+  it('returns null for non-existant id', async () => {
     const db = new SimpleDb(rootDir);
 
     const got = await db.get('non-existant');
     expect(got).toBeNull();
   });
 
-  xit('gets all objects', async () => {
+  it('gets all objects', async () => {
     const cats = [
       { name: 'felix', type: 'tuxedo' },
       { name: 'garfield', type: 'orange tabby' },
@@ -48,7 +48,7 @@ describe('simple db', () => {
     expect(got).toEqual(expect.arrayContaining(cats));
   });
 
-  xit('deletes an object', async () => {
+  it('deletes an object', async () => {
     const db = new SimpleDb(rootDir);
 
     const felix = { name: 'felix', type: 'tuxedo' };
@@ -59,7 +59,7 @@ describe('simple db', () => {
     expect(got).toBeNull();
   });
 
-  xit('updates an object', async () => {
+  it('updates an object', async () => {
     const db = new SimpleDb(rootDir);
 
     const felix = { name: 'felix', type: 'tuxedo' };
