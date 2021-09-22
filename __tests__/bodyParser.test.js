@@ -4,10 +4,10 @@ const bodyParser = require('../lib/bodyParser');
 
 describe('Body Parser', () => {
   it('returns null if method is not POST, PUT, or PATCH', async () => {
-    const testObj = bodyParser({
+    const testObj = await bodyParser({
       method: 'GET',
       url: '/dogs/2',
     });
-    expect(testObj.method).toBeNull();
+    expect(testObj).toBeNull();
   });
 });
